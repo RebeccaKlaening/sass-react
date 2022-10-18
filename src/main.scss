@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Silkscreen&display=swap');
+
+@mixin flex() {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+
+#root {
+    height: 100%; 
+    width: 100%;
+    @include flex();
+    margin: 0; 
+}
+
+body {
+    background-color: #273040;
+    height: 100vh; 
+    width: 100vw; 
+
+    header {
+        display: flex;
+        justify-content: center;
+        color: #05ffc5;
+        font-family: 'Silkscreen';
+        font-size: 40px;
+        margin: 40px;
+    }
+
+    .box-container {
+        height: 500px;
+        width: 500px; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .check-box-holder {
+            display: flex;
+            flex-wrap: wrap;
+            height: 100%; 
+            width: 100%;
+
+            .check-boxes {
+                $border: 1px; 
+                width: calc(33.3% - #{$border} * 2);
+                border: $border solid #b3b9c4;
+                position: relative; 
+                transition: .2s all;
+
+                &:nth-child(1) {
+                    border-radius: 10px 0 0 0; 
+                }
+
+                &:nth-child(3) {
+                    border-radius: 0 10px 0 0; 
+                }
+
+                &:nth-child(7) {
+                    border-radius: 0 0 0 10px; 
+                }
+
+                &:nth-child(9) {
+                    border-radius: 0 0 10px 0; 
+                }
+
+                svg {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+
+                .close-icon {
+                    color: #b3b9c4;
+                }
+            
+                .circle-icon {
+                    color: #c905ff;
+                }
+
+                &:hover {
+                    background-color: #c1f562;
+                    cursor: pointer;
+                    
+                    .close-icon, .circle-icon  {
+                        color: #273040;
+                    }
+                }
+            }
+
+        
+        }
+    }
+
+    .button-container {
+        width: 100%; 
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+
+        .reset-button {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80px;
+            background-color: #05ffc5;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgb(48, 46, 46);
+            font-family: 'Silkscreen';
+        }
+    }
+}
